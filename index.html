@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Gestão de Estamparia - 1.56m</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo-container">
+          <img
+            src="/src/assets/logo.png"
+            alt="Imperiuau Logo"
+            class="sidebar-logo"
+          />
+        </div>
+        <h2 class="sidebar-title">Estamparia Pet</h2>
+
+        <div class="form-group">
+          <label>1. Escolha o Tamanho do Trabalho</label>
+          <div class="presets-container">
+            <button
+              class="btn-preset"
+              data-size="P"
+              title="19.5 x 19.5 (10 filas de 8)"
+            >
+              P
+              <span>19.5cm</span>
+            </button>
+            <button
+              class="btn-preset"
+              data-size="M"
+              title="24.5 x 24.5 (8 filas de 6)"
+            >
+              M
+              <span>24.5cm</span>
+            </button>
+            <button
+              class="btn-preset"
+              data-size="G"
+              title="31 x 31 (6 filas de 5)"
+            >
+              G
+              <span>31cm</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="fabric-info" class="fabric-info">
+          <p>
+            <strong>Altura:</strong> 1.56m | <strong>Largura:</strong> 2.00m
+          </p>
+          <div class="usage-container">
+            <div class="usage-label">
+              <span>Uso da Largura</span>
+              <span id="usage-text">0 / 200 cm</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div id="usage-bar" class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <button id="generate-btn" class="btn btn-green">GERAR PDF FINAL</button>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="content-header">
+          <h1 class="main-title">Configuração das Filas de Produção</h1>
+          <p id="layout-summary" class="layout-summary">
+            Selecione um tamanho para começar
+          </p>
+        </div>
+
+        <div id="rows-container" class="rows-grid">
+          <!-- Row cards will be added here dynamically -->
+          <div class="empty-rows">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2zM4 21a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2z"
+              />
+            </svg>
+            <p>
+              Escolha um tamanho na lateral para configurar as filas de imagens.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Pré-visualização</h2>
+        <img id="preview-image" src="" alt="Preview" />
+      </div>
+    </div>
+  </body>
+</html>
